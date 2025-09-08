@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para la tabla de Usuarios
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+}
+
+// Modelo para la tabla de Vinos
+model Wine {
+  id              String   @id @default(cuid())
+  name            String
+  winery          String
+  year            Int
+  grape           String
+  price           Float
+  description     String
+  imageUrl        String
+  createdAt       DateTime @default(now())
+
+  // Campos para la lógica del Home
+  isFeatured      Boolean  @default(false)
+  isSommelierPick Boolean  @default(false)
+  isOnPromo       Boolean  @default(false)
+  promoPrice      Float?
+}
+
+// Un 'enum' nos permite definir un conjunto de valores posibles para un campo.
+// En este caso, un usuario solo puede ser USER o ADMIN.
+enum UserRole {
+  USER
+  ADMIN
+}

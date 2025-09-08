@@ -1,1 +1,48 @@
+/* app/globals.css */
+
 @import "tailwindcss";
+
+@theme {
+  /* Aquí definimos nuestras variables de tema, como en tu config anterior */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --color-primary-50: #f4f6f3;
+  --color-primary-100: #eaf0e9;
+  --color-primary-200: #d3dcd2;
+  --color-primary-300: #b9c7b8;
+  --color-primary-400: #8da689;
+  --color-primary-500: #5a7d55;
+  --color-primary-600: #456240;
+  --color-primary-700: #31432d;
+  --color-primary-800: #2b3a27;
+  --color-primary-900: #263423;
+  --color-primary-950: #1c261a;
+
+  --color-wine-50: #fef4f7;
+  --color-wine-100: #fddce9;
+  --color-wine-200: #faaac8;
+  --color-wine-300: '#f877a3';
+  --color-wine-400: '#f54a83';
+  --color-wine-500: '#e32865';
+  --color-wine-600: '#b81d4e';
+  --color-wine-700: '#8c0032';
+  --color-wine-800: '#700028';
+  --color-wine-900: '#5c001f';
+  --color-wine-950: '#3d0015';
+
+  --color-gold-50: #fffbeb;
+  --color-gold-100: #fef9d6;
+  --color-gold-200: #fef0a0;
+  --color-gold-300: #fde06a;
+  --color-gold-400: #fcd34d;
+  --color-gold-500: #f5b914;
+  --color-gold-600: #d39e08;
+  --color-gold-700: #b18405;
+  --color-gold-800: #8f6904;
+  --color-gold-900: #785903;
+  --color-gold-950: #4a3601;
+
+  /* Aquí podrías definir tus animaciones si fuera necesario, 
+     pero las clases estándar de Tailwind ya las cubren bien. */
+}
