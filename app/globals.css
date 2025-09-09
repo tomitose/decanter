@@ -1,11 +1,15 @@
 /* app/globals.css */
 
+/* 1. IMPORTACIONES PRINCIPALES */
 @import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
 
+
+/* 2. TU PALETA DE COLORES PERSONALIZADA (LA FUENTE DE LA VERDAD) */
 @theme {
-  /* Aquí definimos nuestras variables de tema, como en tu config anterior */
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-serif: 'Playfair Display', serif;
 
   --color-primary-50: #f4f6f3;
   --color-primary-100: #eaf0e9;
@@ -42,7 +46,81 @@
   --color-gold-800: #8f6904;
   --color-gold-900: #785903;
   --color-gold-950: #4a3601;
+}
 
-  /* Aquí podrías definir tus animaciones si fuera necesario, 
-     pero las clases estándar de Tailwind ya las cubren bien. */
+/* 3. ALIAS SEMÁNTICOS DE SHADCN (NO TOCAR) */
+/* Esto le dice a Tailwind qué nombres de variables semánticas existen. */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* 4. MAPEO DE COLORES Y ESTILOS BASE (AQUÍ ESTÁ LA MAGIA) */
+@layer base {
+  /* Definimos los valores para el tema claro (:root) */
+  :root {
+    --background: var(--color-primary-950); /* Tu verde oscuro de fondo */
+    --foreground: var(--color-primary-100); /* Tu verde claro para texto */
+    
+    --card: var(--color-primary-900);
+    --card-foreground: var(--color-primary-100);
+    
+    --popover: var(--color-primary-900);
+    --popover-foreground: var(--color-primary-100);
+    
+    --primary: var(--color-gold-400); /* Tu dorado para botones y acentos */
+    --primary-foreground: var(--color-primary-950); /* Texto oscuro sobre el dorado */
+    
+    --secondary: var(--color-primary-800);
+    --secondary-foreground: var(--color-primary-100);
+    
+    --muted: var(--color-primary-800);
+    --muted-foreground: var(--color-primary-400);
+    
+    --accent: var(--color-primary-700);
+    --accent-foreground: var(--color-primary-100);
+    
+    --destructive: var(--color-wine-700); /* Tu rojo vino para errores */
+    
+    --border: var(--color-primary-700);
+    --input: var(--color-primary-800); /* Un poco más oscuro que el borde para inputs */
+    --ring: var(--color-gold-500);     /* Anillo de foco dorado */
+    
+    --radius: 0.75rem;
+  }
+
+  /* El tema oscuro lo podemos personalizar después, por ahora lo dejamos */
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    /* ... etc, los valores por defecto de shadcn */
+  }
+
+  /* Aplicación de estilos base */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

@@ -1,10 +1,7 @@
-// components/home/SommelierPicks.tsx
 import { db } from '@/lib/db'; // 👈 1. Importamos la instancia ÚNICA de Prisma
 import Image from 'next/image';
 import Link from 'next/link';
 
-// ❌ Quitamos la instancia local de Prisma
-// const prisma = new PrismaClient();
 
 export default async function SommelierPicks() {
   const recommended = await db.wine.findMany({
@@ -12,7 +9,6 @@ export default async function SommelierPicks() {
     take: 2,
   });
 
-  // Si no hay vinos, no mostramos nada.
   if (recommended.length === 0) {
     return null;
   }

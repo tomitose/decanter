@@ -1,9 +1,5 @@
-// components/home/MonthlyPromo.tsx
 import { db } from '@/lib/db'; // 👈 1. Importamos la instancia ÚNICA de Prisma
 import Link from 'next/link';
-
-// ❌ Ya no instanciamos Prisma aquí
-// const prisma = new PrismaClient();
 
 export default async function MonthlyPromo() {
   // Buscamos el primer vino que esté en promoción usando 'db'
@@ -17,7 +13,6 @@ export default async function MonthlyPromo() {
   }
 
   return (
-    // Quité 'suppressHydrationWarning', ya que no es necesario aquí
     <section className="mb-10 w-full max-w-md">
       <Link
         href={`/vinos/${promoWine.id}`} // 👈 2. Corregimos la sintaxis del href
