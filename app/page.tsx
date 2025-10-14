@@ -1,6 +1,7 @@
 import FeaturedWines from "@/components/home/FeaturedWines";
 import MonthlyPromo from "@/components/home/MonthlyPromo";
 import SommelierPicks from "@/components/home/SommelierPicks";
+import SearchBar from "@/components/shared/SearchBar/SearchBar";
 
 export default async function HomePage() {
   return (
@@ -17,6 +18,10 @@ export default async function HomePage() {
         </p>
       </header>
 
+      {/* Barra de búsqueda */}
+      <SearchBar />
+
+      {/* Contenido del home */}
       <FeaturedWines />
       <SommelierPicks />
       <MonthlyPromo />
