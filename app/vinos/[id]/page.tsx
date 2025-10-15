@@ -20,7 +20,7 @@ export default async function WineDetailPage({
 
   return (
     <div className="relative min-h-screen text-white">
-      {/* --- Botón para Volver al Home --- */}
+      {/* --- Back to Home Button --- */}
       <div className="absolute top-6 left-6 z-20">
         <Link
           href="/"
@@ -42,7 +42,7 @@ export default async function WineDetailPage({
         </Link>
       </div>
 
-      {/* --- Imagen Flotante del Vino --- */}
+      {/* --- Floating Wine Image --- */}
       <div className="pt-16 pb-8 text-center animate-fade-in">
         <div className="relative inline-block animate-float">
           <div className="relative w-100 h-[380px] md:w-120 md:h-[450px] mx-auto">
@@ -61,7 +61,7 @@ export default async function WineDetailPage({
         </div>
       </div>
 
-      {/* --- Tarjeta Principal de Información --- */}
+      {/* --- Main Information Card --- */}
       <div className="relative z-10 container mx-auto px-4 pb-12 max-w-md">
         <div className="bg-black/50 backdrop-blur-md rounded-3xl p-6 animate-slide-up shadow-2xl border border-white/10">
           <div className="text-center mb-6">
@@ -83,7 +83,7 @@ export default async function WineDetailPage({
             </p>
           </div>
 
-          {/* --- Grid de Datos (Cepa, Añada, Precio) --- */}
+          {/* --- Data Grid (Grape, Year, Price) --- */}
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-primary-900/40 rounded-2xl p-4 text-center">
               <h3 className="text-primary-400 text-sm font-medium uppercase">

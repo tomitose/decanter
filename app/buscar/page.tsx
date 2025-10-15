@@ -1,6 +1,7 @@
 import { db } from '@/lib/db';
 import SearchBar from '@/components/shared/SearchBar/SearchBar';
 import WineCard from '@/components/shared/WineCard/WineCard';
+import EmptyState from '@/components/shared/ui/EmptyState';
 import Link from 'next/link';
 
 interface SearchPageProps {
@@ -34,7 +35,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-serif font-bold text-gold-300 mb-4">
-            {query ? `Resultados para "${query}"` : 'Todos los vinos'}
+            {query ? `Results for "${query}"` : 'All Wines'}
           </h1>
           <SearchBar />
         </div>
@@ -44,7 +45,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           {wines.length > 0 ? (
             <>
               <p className="text-gray-400 mb-6 text-center">
-                {wines.length} {wines.length === 1 ? 'vino encontrado' : 'vinos encontrados'}
+                {wines.length} {wines.length === 1 ? 'wine found' : 'wines found'}
               </p>
               
               {/* Grid de vinos */}
@@ -57,31 +58,15 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               </div>
             </>
           ) : (
-            /* Estado sin resultados */
-            <div className="text-center py-12">
-              <div className="text-gray-400 mb-4">
-                <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <h3 className="text-xl font-semibold mb-2">No se encontraron vinos</h3>
-                <p className="mb-4">
-                  No hay vinos que coincidan con "{query}". 
-                  Intenta con otros términos de búsqueda.
-                </p>
-                <div className="text-sm text-gray-500">
-                  <p>Sugerencias:</p>
-                  <ul className="mt-2 space-y-1">
-                    <li>• Verifica la ortografía</li>
-                    <li>• Usa términos más generales</li>
-                    <li>• Busca por nombre de bodega o tipo de uva</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            /* Estado sin resultados usando EmptyState */
+            <EmptyState
+              title="No wines found"
+              description={`No wines match "${query}". Try different search terms.`}
+            />
           )}
         </div>
 
-        {/* Botón para volver al home */}
+        {/* Back to home button */}
         <div className="text-center">
           <Link
             href="/"
@@ -90,7 +75,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Volver al inicio
+            Back to home
           </Link>
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function SearchBar() {
           type="text"
           value={searchTerm}
           onChange={handleInputChange}
-          placeholder="Buscar vinos por nombre, bodega o cepa..."
+          placeholder="Search wines by name, winery or grape..."
           className="w-full px-6 py-4 pr-14 bg-black/40 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300"
         />
         
@@ -52,9 +52,9 @@ export default function SearchBar() {
         </button>
       </div>
       
-      {/* Sugerencia de búsqueda */}
+      {/* Search suggestion */}
       <p className="text-center text-gray-400 text-sm mt-3">
-        Prueba buscando "Malbec", "Catena" o "Chardonnay"
+        Try searching for Malbec, Catena or Chardonnay
       </p>
     </form>
   );

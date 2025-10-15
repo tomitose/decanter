@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
-  title: 'Decanter - Your Wine Collection',
-  description: 'Discover your next favorite wine.',
+  title: 'Decanter - Discover Your Next Favorite Wine',
+  description: 'Explore our curated collection of premium wines from Argentina. Find your perfect wine today.',
 };
 
 export default function RootLayout({
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} bg-primary-950 text-gray-200`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} bg-primary-950 text-gray-200`} suppressHydrationWarning>
         {children}
       </body>
     </html>

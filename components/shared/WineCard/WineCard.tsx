@@ -33,7 +33,7 @@ export default function WineCard({ wine }: WineProps) {
       
       {/* Formateamos el precio para que tenga dos decimales y el símbolo de dólar, 
           tal como lo especificamos en el test. */}
-      <p className="text-xl font-semibold mt-2">${wine.price.toFixed(2)}</p>
+      {/* <p className="text-xl font-semibold mt-2">${wine.price.toFixed(2)}</p> */}
     </div>
   );
 }
